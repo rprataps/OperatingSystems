@@ -43,7 +43,7 @@ void printsyscalls() {
 	duration = endTime - startTime;
 	for(i=0;i<NPROC;i++) {
 		proc=&proctab[i];
-		if(proc->pstate != PRFREE) {
+		//if(proc->pstate != PRFREE) {
 			if(getpidCount[i] > 0 || gettimeCount[i] > 0 || killCount[i] > 0 
 			|| signalCount[i] > 0 || sleepCount[i] > 0 || waitCount[i] > 0)
 				kprintf("\nProcess[pid:%d,name:%s]\n",i,proc->pname);
@@ -62,5 +62,5 @@ void printsyscalls() {
 			if(waitCount[i] > 0)
 				kprintf("SYSCALL: sys_wait, count: %d, average execution time: %lu (ms)\n",waitCount[i],duration);
 		}
-	}
+	//}
 }
